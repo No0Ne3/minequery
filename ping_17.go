@@ -1822,7 +1822,7 @@ func (p *Pinger) ping17WriteStatusRequestPacket(writer io.Writer) error {
 func (p *Pinger) ping17ReadStatusResponsePacketPayload(reader io.Reader) ([]byte, error) {
 	// Allocate buffer of 5 bytes (VarInt maximum length) and read packet length
 	println("AAAAAAAAAAAAAAA")
-	lb := make([]byte, 10000)
+	lb := make([]byte, 5)
 	ln, err := reader.Read(lb)
 	if err != nil {
 		return nil, err
