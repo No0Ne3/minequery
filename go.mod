@@ -1,4 +1,4 @@
-module github.com/No0Ne3/minequery/v3
+module github.com/No0Ne3/minequery/v5
 
 go 1.13
 
