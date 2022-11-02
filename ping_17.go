@@ -1821,7 +1821,8 @@ func (p *Pinger) ping17WriteStatusRequestPacket(writer io.Writer) error {
 
 func (p *Pinger) ping17ReadStatusResponsePacketPayload(reader io.Reader) ([]byte, error) {
 	// Allocate buffer of 5 bytes (VarInt maximum length) and read packet length
-	lb := make([]byte, 5000)
+	println("AAAAAAAAAAAAAAA")
+	lb := make([]byte, 10000)
 	ln, err := reader.Read(lb)
 	if err != nil {
 		return nil, err
@@ -1836,7 +1837,9 @@ func (p *Pinger) ping17ReadStatusResponsePacketPayload(reader io.Reader) ([]byte
 
 	// Read entire packet to a buffer
 	pb := bytes.NewBuffer(make([]byte, 0, pl))
+	println("BBBBBBBBBBBBBBB")
 	pb.Write(lb[ln-lr.Len() : ln])
+	println("CCCCCCCCCCCCCCCCCC")
 	if _, err = io.CopyN(pb, reader, int64(pl)-int64(lr.Len())); err != nil {
 		return nil, err
 	}
